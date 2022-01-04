@@ -9,6 +9,8 @@ services:
     volumes:
       - ./database/schema.sql:/docker-entrypoint-initdb.d/1.schema.sql
       - ./database/content.sql:/docker-entrypoint-initdb.d/2.content.sql
+    cap_add:
+      - SYS_NICE
     ports:
       - 4312:3306
     networks:
@@ -33,7 +35,7 @@ services:
       
   public-api:
     image: foody-public-api:latest
-    command: "httpd -D FOREGROUND"
+    command: "php artisan serve --host=0.0.0.0"
     volumes:
       - ./public-api:/app/
     ports:
@@ -46,6 +48,8 @@ services:
   web-ui:
     image: foody-web-ui:latest
     command: "npm start"
+    environment:
+      - LARAVEL_URL=${LARAVEL_URL}
     volumes:
       - ./web-ui:/app/
     ports:

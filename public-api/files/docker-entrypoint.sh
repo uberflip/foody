@@ -10,6 +10,7 @@ chmod 0777 /app/storage/logs/
 chmod 0777 /app/storage/framework/
 chmod 0777 /app/storage/framework/views/
 chmod 0777 /app/storage/framework/cache/
+chmod 0777 /app/storage/framework/cache/data
 chmod 0777 /app/storage/framework/sessions/
 
 exec "$@"
