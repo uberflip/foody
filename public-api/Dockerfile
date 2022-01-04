@@ -1,23 +1,23 @@
-FROM centos:7
+FROM php:8.0-alpine
 
 ENV TIME_ZONE=America/Toronto
 
-RUN yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm -y && \
-    yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm -y && \
-    yum update -y && \
-    yum install yum-utils -y && \
-    yum-config-manager --enable remi-php73 && \
-    yum install make -y && \
-    yum install php php-pdo php-mysql php-mcrypt php-mbstring php-xml php-zip -y && \
-    curl -sS https://getcomposer.org/installer | php -- --version 1.10.16 --install-dir=/usr/bin --filename=composer && \
-    yum clean all -y
-
-
-RUN rm -rf /etc/httpd/conf && rm -rf /etc/httpd/conf.d && rm -rf /etc/httpd/conf.modules.d
-
-COPY files/httpd.conf /etc/httpd/conf/httpd.conf
-
-COPY files/php.ini /etc/php.ini
+RUN apk add --no-cache \
+  bash \
+  composer \
+  make \
+  php8-dom \
+  php8-fileinfo \
+  php8-mbstring \
+  php8-pecl-mcrypt \
+  php8-mysqli \
+  php8-pdo \
+  php8-pdo_mysql \
+  php8-simplexml \
+  php8-tokenizer \
+  php8-xml \
+  php8-xmlwriter \
+  php8-zip
 
 COPY files/docker-entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
@@ -25,5 +25,3 @@ RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 WORKDIR /app
 
 ENTRYPOINT [ "docker-entrypoint.sh" ]
-
-CMD []

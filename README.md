@@ -1,24 +1,20 @@
-# foody
+# Foody - Technical Challenge Web App
 
 ## Introduction
 
-foody is a simple web application built to help developer candidates demonstrate practical skills with
+Foody is a simple web application built to help developer candidates demonstrate practical skills with:
 
-* [GitHub](https://github.com/)
 * [Git](https://git-scm.com/)
 * [Docker](https://www.docker.com/)
 * [MySQL 8](https://www.mysql.com/)
-* [PHP 7](https://php.net/)
+* [PHP 8](https://php.net/)
 * [TypeScript](https://www.typescriptlang.org/)
 * [Composer](https://getcomposer.org/)
 * [npm](https://www.npmjs.com/)
 * [Laravel 8](https://laravel.com/)
 * [React](https://reactjs.org/)
 * [NestJS](https://nestjs.com/)
-* the editor of their choice
-* the web developer tools of their choice (Chrome Developer Tools, Firebug, etc)
-
-both before the interview (by completing the "Getting Started" steps) and during the interview (by solving simple problems hands-on with our team, either on screenshare or in-person).
+* [VS Code](https://code.visualstudio.com/)
 
 By using foody in our interviews we hope to:
 
@@ -26,50 +22,37 @@ By using foody in our interviews we hope to:
 
 * **Reduce the (unrealistic!) need for memorization:** Most developers can't memorize the names of every function, their arguments, and the precise details of how they behave, or recall them during an interview.  Candidates are free to use Google, Stack Overflow, man pages, documentation, tutorials, etc during their interview as they would normally.
 
-* **Make interviews more efficient:** Candidates complete the "Getting Started" steps and prepare for their interview ahead of time, at their convenience, resulting in a shorter, more focused interview.
-
-* **Make interviews more comfortable:** Candidates come to their interview having already seen the codebase they'll be solving problems in.
+* **Make interviews more comfortable:** Candidates can complete their tasks on their own schedule and without needing to install & configure a dev environment.
 
 * **Provide realistic problems:** Candidates are given realistic problems to solve rather than trivia, logic puzzles, or trivial problems that can be introduced and set up entirely during the interview.
 
 ## Getting Started
 
-### Introduction
+Foody is built on Docker, using MySQL, NestJS, Laravel and React.  The project is divided into four main subdirectories.
 
-The project is divided into four main subdirectories.
 * **database**: a set of SQL files to create the database.
 * **private-api**: a NestJS API to query the database (in a production environment this API would not be publicly accessile).
 * **public-api**: a Laravel API used by the web layer.
 * **web-ui**: a React application to interact with the public API.
 
-### Getting started
+### Dev Environment
 
-foody is built on Docker, using MySQL, NestJS, Laravel and React.  In order to solve the problems during the interview, you will need a computer that's capable of running the application, and a user with rights to install the required tools.
+1. You will need a personal [Github](https://github.com) account in order to complete and submit the challenge.  Once you have an account, go to [Gitpod](https://gitpod.io) and create an account there using your Github account.
 
-### Install Docker and make
+2. Create a copy of this template repo in your own Github account.
 
-Install Docker and make.  The exact steps will vary depending on your operating system.
+3. Start a Gitpod workspace based on your repo.  You can do this either by prepending "https://gitpod.io#" to your repo URL or by installing the Gitpod extension in your browser which will give you a Gitpod button in Github.
 
-### Clone the application
+4. Wait for the project to initialize (10-15 minutes).  Once all of the Docker containers have started, a browser preview window will open.  You are now ready to start your challenge tasks.
 
-Clone the application using the Github template repo.
+5. You can use the Source Control tab to interact with your Git repo.  When you are finished with your tasks, make sure you push all of your commits back to Github.
 
-### Start the application
+### Data Model
 
-Start the application using the Makefile in the project's root.
-
-### Confirm the application is properly configured
-
-The application should be accessible at [http://localhost:7755/](http://localhost:7755/).  
-
-If everything was installed and configured correctly, you should see a web page welcoming you the the foody app.  If the app fails to start or doesn't work properly, you should figure out why by checking the output recevied during start up, and try to fix it.  (This isn't a test.  The app should start correctly following the instructions above.)
-
-### Familiarize yourself with the basics of the application and the technologies used
-
-foody is a simple web application for tracking the consumptions of foods and nutrients of a set of users.
+Foody is a simple web application for tracking the consumptions of foods and nutrients of a set of users.
 
 ![Data model](./database/data-model.png)
 
 ## Disclaimer
 
-foody is not by any means a finished product. It's not intended to run on a production server, and it's sole purpose is to run on a candidates computer in development mode.
+Foody is not by any means a finished product. It's not intended to run on a production server, and it's sole purpose is to run in Gitpod in development mode.
